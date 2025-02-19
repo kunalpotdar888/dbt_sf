@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: stg_customers
+    description: info of customers
     columns: 
       - name: C_CUSTKEY
+        description: primary key of customer
         tests:
           - unique
           - not_null
@@ -11,12 +13,15 @@ models:
               to: ref('stg_orders')
               field: O_CUSTKEY
   - name: stg_orders
+    description: info of orders
     columns:
       - name: O_ORDERKEY
+        description: primary key of orders
         tests:
           - unique
           - not_null
       - name: O_ORDERSTATUS
+        description: "{{doc('stat')}}"
         tests:
           - accepted_values:
               values:
