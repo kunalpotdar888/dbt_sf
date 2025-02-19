@@ -1,0 +1,1 @@
+select O_ORDERDATE from {{ref("stg_orders")}} where O_ORDERDATE < date('2023-01-01')

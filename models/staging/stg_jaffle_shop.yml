@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_customers
+    columns: 
+      - name: C_CUSTKEY
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: O_CUSTKEY
+  - name: stg_orders
+    columns:
+      - name: O_ORDERKEY
+        tests:
+          - unique
+          - not_null
+      - name: O_ORDERSTATUS
+        tests:
+          - accepted_values:
+              values:
+                - O
+                - F
+                - P
+                

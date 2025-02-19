@@ -1,6 +1,6 @@
 
 with customers as (
-select * from SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.CUSTOMER
+select * from {{ source('jaffle_shop', 'customer') }}
 )
 
 select * from customers
